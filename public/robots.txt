@@ -1,0 +1,15 @@
+# robots.txt pour BABA HÔTEL
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.git
+Disallow: /private
+
+# Sitemaps
+Sitemap: https://babahotel-douala.com/sitemap.xml
+
+# Crawl delay (en secondes)
+Crawl-delay: 1
+
+# Permet aux moteurs de suivre les liens nofollow
+Allow: /

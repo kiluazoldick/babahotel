@@ -16,9 +16,16 @@ import { PRICES, SITE, COLORS } from "@/lib/constants";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Nos Chambres & Studios - BABA HÔTEL Douala",
+  title: "Chambres & Studios - BABA HÔTEL Douala | Tarifs 8.000-20.000 FCFA",
   description:
-    "Découvrez nos chambres simples, VIP, haut standing et studios meublés à Douala. Photos, équipements, disponibilités.",
+    "Découvrez nos 6 types de chambres et studios meublés à Douala : chambre simple, climatisée, VIP, haut standing et studios. Petit déjeuner et Wifi inclus. Tarifs transparents.",
+  keywords: [
+    "chambre Douala",
+    "studio meublé",
+    "hébergement climatisé",
+    "chambre VIP",
+    "prix abordable",
+  ],
 };
 
 export default function ChambresStudiosPage() {
@@ -98,38 +105,38 @@ export default function ChambresStudiosPage() {
       />
 
       {/* Filter Tabs */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-6 md:py-8 bg-gray-50 sticky top-16 z-40 shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
             <button
-              className="font-medium py-2 px-6 rounded-full text-white"
+              className="font-medium py-2 px-4 md:px-6 rounded-full text-white text-xs md:text-sm"
               style={{ backgroundColor: COLORS.blue }}
             >
-              Tous les hébergements
+              Tous
             </button>
-            <button className="bg-white text-gray-700 hover:bg-gray-100 font-medium py-2 px-6 rounded-full transition-colors">
+            <button className="bg-white text-gray-700 hover:bg-gray-100 font-medium py-2 px-4 md:px-6 rounded-full transition-colors text-xs md:text-sm">
               Chambres
             </button>
-            <button className="bg-white text-gray-700 hover:bg-gray-100 font-medium py-2 px-6 rounded-full transition-colors">
+            <button className="bg-white text-gray-700 hover:bg-gray-100 font-medium py-2 px-4 md:px-6 rounded-full transition-colors text-xs md:text-sm">
               Studios
             </button>
-            <button className="bg-white text-gray-700 hover:bg-gray-100 font-medium py-2 px-6 rounded-full transition-colors">
-              Promotions
+            <button className="bg-white text-gray-700 hover:bg-gray-100 font-medium py-2 px-4 md:px-6 rounded-full transition-colors text-xs md:text-sm">
+              Promo
             </button>
           </div>
         </div>
       </section>
 
       {/* All Rooms Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Tous nos hébergements
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {allRooms.map((room, index) => (
               <div
                 key={index}
@@ -185,15 +192,15 @@ export default function ChambresStudiosPage() {
       </section>
 
       {/* Equipment Included */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Équipements inclus dans tous nos hébergements
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {equipmentIncluded.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -218,10 +225,10 @@ export default function ChambresStudiosPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Questions fréquentes
@@ -263,12 +270,12 @@ export default function ChambresStudiosPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16" style={{ backgroundColor: COLORS.blue }}>
+      <section className="py-12 md:py-16" style={{ backgroundColor: COLORS.blue }}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white">
             Prêt à réserver votre séjour ?
           </h2>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto text-sm md:text-base">
             Contactez-nous dès maintenant pour vérifier les disponibilités et
             bénéficier du meilleur tarif.
           </p>

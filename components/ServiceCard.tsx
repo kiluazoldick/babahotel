@@ -14,12 +14,12 @@ export default function ServiceCard({
   description,
 }: ServiceCardProps) {
   return (
-    <div className="service-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-all duration-300">
-      <div className="service-icon mb-4">
-        <Icon className="w-12 h-12 mx-auto" style={{ color: COLORS.blue }} />
+    <div className="service-card bg-white p-4 md:p-6 rounded-lg md:rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center h-full flex flex-col">
+      <div className="service-icon mb-3 md:mb-4 flex-shrink-0">
+        <Icon className="w-10 md:w-12 h-10 md:h-12 mx-auto" style={{ color: COLORS.blue }} />
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-base md:text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-sm md:text-base text-gray-600 flex-grow">{description}</p>
     </div>
   );
 }

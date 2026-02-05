@@ -18,9 +18,18 @@ import { PRICES, SITE, COLORS } from "@/lib/constants";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Tarifs & Services - BABA HÔTEL Douala",
+  title: "Tarifs & Services - BABA HÔTEL | 8.000-20.000 FCFA",
   description:
-    "Tarifs transparents : chambre à 8.000 FCFA, studio à 20.000 FCFA. Petit déjeuner et wifi inclus. Voir tous nos services.",
+    "Tous nos tarifs transparents : chambres simples (8.000 FCFA) à haut standing (17.000 FCFA), studios meublés. Petit déjeuner buffet, Wifi haut débit et parking inclus. Pas de frais cachés.",
+  keywords: [
+    "tarifs hôtel",
+    "prix chambre Douala",
+    "studio meublé prix",
+    "petit déjeuner inclus",
+    "services hôtel",
+    "wifi gratuit",
+    "parking sécurisé",
+  ],
 };
 
 export default function TarifsServicesPage() {
@@ -139,7 +148,7 @@ export default function TarifsServicesPage() {
 
       {/* Price Guarantee Banner */}
       <section
-        className="py-8"
+        className="py-6 md:py-8"
         style={{
           background: `linear-gradient(to right, ${COLORS.blue}, #3B82F6)`,
         }}
@@ -157,10 +166,10 @@ export default function TarifsServicesPage() {
       </section>
 
       {/* Main Price Table */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Tarifs des hébergements
@@ -246,15 +255,15 @@ export default function TarifsServicesPage() {
       </section>
 
       {/* Services Included */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Services inclus dans tous les tarifs
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {servicesIncluded.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -280,15 +289,15 @@ export default function TarifsServicesPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Services supplémentaires
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {additionalServices.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -313,17 +322,17 @@ export default function TarifsServicesPage() {
 
       {/* Special Offers */}
       <section
-        className="py-16"
+        className="py-12 md:py-16"
         style={{ backgroundColor: `${COLORS.blue}1A` }}
       >
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Offres spéciales & Promotions
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {specialOffers.map((offer, index) => (
               <div
                 key={index}
@@ -355,15 +364,15 @@ export default function TarifsServicesPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Ce que disent nos clients
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 name: "Jean M.",
@@ -398,12 +407,12 @@ export default function TarifsServicesPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16" style={{ backgroundColor: COLORS.red }}>
+      <section className="py-12 md:py-16" style={{ backgroundColor: COLORS.red }}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white">
             Vous avez des questions sur nos tarifs ?
           </h2>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto text-sm md:text-base">
             Notre équipe est disponible pour vous conseiller et vous proposer la
             meilleure offre selon vos besoins.
           </p>

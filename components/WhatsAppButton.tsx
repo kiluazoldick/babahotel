@@ -13,11 +13,12 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50 transition-all duration-300 hover:scale-110"
+      className="fixed bottom-4 md:bottom-6 right-4 md:right-6 p-3 md:p-4 rounded-full shadow-lg md:shadow-xl z-50 transition-all duration-300 hover:scale-110 active:scale-95"
       style={{ backgroundColor: "#25D366" }}
       aria-label="Contactez-nous sur WhatsApp"
+      title="Envoyer un message WhatsApp"
     >
-      <MessageSquare className="w-6 h-6 text-white" />
+      <MessageSquare className="w-6 md:w-7 h-6 md:h-7 text-white" />
     </a>
   );
 }

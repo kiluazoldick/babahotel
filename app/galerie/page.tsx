@@ -1,10 +1,24 @@
 // app/galerie/page.tsx
 "use client";
 
+import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import { useState } from "react";
 import { Search, Filter, ZoomIn, Phone, MessageSquare } from "lucide-react";
 import { SITE, COLORS } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Galerie Photos - BABA HÔTEL Douala",
+  description:
+    "Découvrez BABA HÔTEL en images : chambres confortables, studios meublés, restaurant, bar, et équipements. Visite virtuelle des espaces.",
+  keywords: [
+    "photos hôtel",
+    "chambres photos",
+    "studio galerie",
+    "intérieur hôtel",
+    "visite virtuelle",
+  ],
+};
 
 const categories = [
   "Toutes",
@@ -20,57 +34,43 @@ const galleryItems = [
     category: "Chambres",
     title: "Chambre Standard",
     description: "Confort et simplicité",
+    image: "/images/chambre-simple.jpg",
+  },
+  {
+    category: "Chambres",
+    title: "Chambre Climatisée",
+    description: "Élégance et confort",
+    image: "/images/chambre-climatisee.jpg",
+  },
+  {
+    category: "Chambres",
+    title: "Chambre Conforme",
+    description: "Espace et détails",
+    image: "/images/chambre-conforme.jpg",
   },
   {
     category: "Chambres",
     title: "Chambre VIP",
-    description: "Élégance et espace",
+    description: "Élégance et raffinement",
+    image: "/images/chambre-vip.jpg",
   },
   {
     category: "Chambres",
     title: "Suite Haut Standing",
-    description: "Luxe et raffinement",
+    description: "Luxe et prestige",
+    image: "/images/chambre-haut-standing.jpg",
   },
   {
     category: "Studios",
-    title: "Studio Familial",
-    description: "Espace et autonomie",
-  },
-  {
-    category: "Studios",
-    title: "Cuisine équipée",
-    description: "Tout pour cuisiner",
+    title: "Studio Meublé",
+    description: "Confortable et équipé",
+    image: "/images/studio-meuble.jpg",
   },
   {
     category: "Restaurant & Bar",
-    title: "Salle à manger",
+    title: "Restaurant & Bar",
     description: "Ambiance chaleureuse",
-  },
-  {
-    category: "Restaurant & Bar",
-    title: "Bar Lounge",
-    description: "Détente et convivialité",
-  },
-  { category: "Équipements", title: "Réception", description: "Accueil 24/7" },
-  {
-    category: "Équipements",
-    title: "Salle banquet",
-    description: "Événements jusqu'à 50 personnes",
-  },
-  {
-    category: "Équipements",
-    title: "Parking sécurisé",
-    description: "Véhicule en sécurité",
-  },
-  {
-    category: "Extérieurs",
-    title: "Façade de l'hôtel",
-    description: "Architecture moderne",
-  },
-  {
-    category: "Extérieurs",
-    title: "Terrasse",
-    description: "Espace de détente",
+    image: "/images/restaurant.jpg",
   },
 ];
 
@@ -130,22 +130,30 @@ export default function GaleriePage() {
       {/* Gallery Grid */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {filteredItems.map((item, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="group relative overflow-hidden rounded-lg md:rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedImage(index)}
               >
-                <div className="aspect-square bg-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-gray-500 mb-2">
-                      [Image: {item.title}]
+                <div className="aspect-square bg-gray-200 flex items-center justify-center overflow-hidden">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="text-center">
+                      <div className="text-gray-500 mb-2">
+                        [Image: {item.title}]
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        Cliquez pour agrandir
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-400">
-                      Cliquez pour agrandir
-                    </div>
-                  </div>
+                  )}
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -295,26 +303,32 @@ export default function GaleriePage() {
       {/* Image Modal */}
       {selectedImage !== null && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-4xl max-h-[90vh]">
-            <div className="bg-gray-800 aspect-video rounded-lg overflow-hidden flex items-center justify-center">
-              <div className="text-white text-center">
-                <div className="text-3xl mb-4">🖼️</div>
-                <h3 className="text-xl font-semibold mb-2">
-                  {galleryItems[selectedImage].title}
-                </h3>
-                <p>{galleryItems[selectedImage].description}</p>
-                <p className="text-sm text-gray-400 mt-4">
-                  (Image réelle à intégrer)
-                </p>
-              </div>
+          <div className="relative max-w-4xl max-h-[90vh] w-full">
+            <div className="bg-gray-900 rounded-lg overflow-hidden flex items-center justify-center h-full">
+              {galleryItems[selectedImage]?.image ? (
+                <img
+                  src={galleryItems[selectedImage].image}
+                  alt={galleryItems[selectedImage].title}
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <div className="text-white text-center p-8">
+                  <div className="text-3xl mb-4">🖼️</div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {galleryItems[selectedImage]?.title}
+                  </h3>
+                  <p className="mb-4">{galleryItems[selectedImage]?.description}</p>
+                </div>
+              )}
             </div>
             <div className="absolute top-4 right-4">
               <button
                 onClick={() => setSelectedImage(null)}
-                className="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+                className="bg-white/20 hover:bg-white/40 text-white p-2 md:p-3 rounded-full transition-colors"
+                aria-label="Fermer"
               >
                 ✕
               </button>

@@ -13,11 +13,13 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://babahotel-douala.com"),
   title: {
-    default: `${SITE.name} - Confort et élégance à Douala`,
-    template: `%s | ${SITE.name}`,
+    default: `${SITE.name} - Chambres & Studios à Douala`,
+    template: `%s - ${SITE.name}`,
   },
-  description: SITE.description,
+  description:
+    "Chambres confortables et studios meublés à Douala. Tarifs à partir de 8 000 FCFA. Wifi et petit déjeuner inclus. Réservez maintenant !",
   keywords: [
     "hôtel Douala",
     "chambre Douala",
@@ -26,8 +28,13 @@ export const metadata: Metadata = {
     "BABA HÔTEL",
     "Logpom",
     "Ndogbong",
+    "hôtel pas cher",
+    "location chambre",
+    "séjour longue durée",
+    "tarif accessible",
+    "confort élégance",
   ],
-  authors: [{ name: SITE.name }],
+  authors: [{ name: SITE.name, url: "https://babahotel-douala.com" }],
   creator: SITE.name,
   publisher: SITE.name,
   formatDetection: {
@@ -35,22 +42,37 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
+  alternates: {
+    canonical: "https://babahotel-douala.com",
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
     url: "https://babahotel-douala.com",
-    title: `${SITE.name} - Confort et élégance à Douala`,
-    description: SITE.description,
     siteName: SITE.name,
+    title: `${SITE.name} - Chambres & Studios à Douala`,
+    description:
+      "Chambres confortables et studios meublés à Douala. Tarifs à partir de 8 000 FCFA. Wifi et petit déjeuner inclus.",
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BABA HÔTEL Douala",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} - Confort et élégance à Douala`,
-    description: SITE.description,
+    title: `${SITE.name} - Chambres & Studios à Douala`,
+    description:
+      "Chambres confortables et studios meublés à Douala. Tarifs à partir de 8 000 FCFA.",
+    images: ["/images/hero.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -60,8 +82,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // À ajouter plus tard : google: "votre-code-verification",
-    // À ajouter plus tard : yandex: "votre-code-verification",
+    google: undefined,
+    yandex: undefined,
   },
 };
 
@@ -73,9 +95,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <head>
-        {/* TailwindCSS should be included via a PostCSS configuration or imported in a global CSS file */}
+        {/* Favicon & Icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"

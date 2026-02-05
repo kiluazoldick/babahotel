@@ -1,6 +1,7 @@
 // app/contact/page.tsx
 "use client";
 
+import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import { useState } from "react";
 import {
@@ -14,6 +15,21 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { SITE, COLORS } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Contact - BABA HÔTEL | Téléphone, Email, WhatsApp",
+  description:
+    "Contactez BABA HÔTEL à Douala. Téléphone: +237 697 313 718, Adresse: Ndogbong Zachman. Disponible 24/7. Réservez maintenant !",
+  keywords: [
+    "contact hôtel",
+    "téléphone",
+    "whatsapp",
+    "email",
+    "localisation",
+    "formulaire contact",
+    "horaires",
+  ],
+};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

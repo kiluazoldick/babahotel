@@ -1,4 +1,5 @@
 // app/page.tsx
+import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import RoomCard from "@/components/RoomCard";
@@ -17,27 +18,40 @@ import {
 } from "lucide-react";
 import { SERVICES, PRICES, SITE, COLORS } from "@/lib/constants";
 
+export const metadata: Metadata = {
+  title: "BABA HÔTEL Douala - Chambres & Studios Confortables",
+  description:
+    "Bienvenue à BABA HÔTEL, votre hôtel de confiance à Douala. Chambres confortables, studios meublés, petit déjeuner inclus. Réservez dès maintenant !",
+  keywords: [
+    "hôtel Douala",
+    "chambres confortables",
+    "studios meublés",
+    "hébergement accessible",
+    "tarifs compétitifs",
+  ],
+};
+
 export default function HomePage() {
   const rooms = [
     {
-      image: "/images/chambre1.jpg",
+      image: "/images/chambre-simple.jpg",
       title: "Chambre Standard",
       description:
-        "Chambre confortable avec lit double, salle de bain privée et climatisation.",
+        "Chambre confortable avec lit simple, salle de bain privée et ventilateur.",
       price: `À partir de ${PRICES.simpleRoom}/nuit`,
     },
     {
-      image: "/images/chambre2.jpg",
-      title: "Chambre Deluxe",
+      image: "/images/chambre-climatisee.jpg",
+      title: "Chambre Climatisée",
       description:
-        "Espace plus grand avec coin salon, parfait pour les longs séjours.",
-      price: `À partir de ${PRICES.climatiseeVIP}/nuit`,
+        "Espace confortable avec climatisation, wifi haut débit et espace de travail.",
+      price: `À partir de ${PRICES.climatisee}/nuit`,
     },
     {
-      image: "/images/studio.jpg",
-      title: "Studio Familial",
+      image: "/images/studio-meuble.jpg",
+      title: "Studio Meublé",
       description:
-        "Espace spacieux avec cuisine équipée, idéal pour les familles.",
+        "Studio entièrement équipé avec kitchenette, idéal pour les longs séjours.",
       price: `À partir de ${PRICES.studioMeuble}/nuit`,
     },
   ];
@@ -48,15 +62,15 @@ export default function HomePage() {
       <Hero />
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Nos Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {SERVICES.map((service, index) => {
               const Icon =
                 service.icon === "Home"
@@ -80,18 +94,22 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Pourquoi choisir Baba Hôtel ?
           </h2>
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             <div className="lg:w-1/2">
-              <div className="bg-gray-200 rounded-xl shadow-lg w-full h-96 flex items-center justify-center">
-                <span className="text-gray-500">Image de l&apos;hôtel</span>
+              <div className="relative w-full h-96 rounded-xl shadow-lg overflow-hidden">
+                <img
+                  src="/images/restaurant.jpg"
+                  alt="Espace de détente BABA HÔTEL"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div className="lg:w-1/2">
@@ -138,15 +156,15 @@ export default function HomePage() {
       </section>
 
       {/* Rooms Preview Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Nos Chambres & Studios
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {rooms.map((room, index) => (
               <RoomCard
                 key={index}
@@ -171,15 +189,15 @@ export default function HomePage() {
       </section>
 
       {/* Location & Contact Section */}
-      <section id="contact" className="py-16 bg-white">
+      <section id="contact" className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
-            className="text-3xl font-bold text-center mb-12"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
             style={{ color: COLORS.blue }}
           >
             Localisation & Contact
           </h2>
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
             <div className="lg:w-1/2">
               <div className="h-96 rounded-xl shadow-lg overflow-hidden">
                 <iframe

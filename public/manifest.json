@@ -1,0 +1,67 @@
+{
+  "name": "BABA HÔTEL - Chambres & Studios à Douala",
+  "short_name": "BABA HÔTEL",
+  "description": "Chambres confortables et studios meublés à Douala. Tarifs accessibles avec petit déjeuner et wifi inclus.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#7EC8E3",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/hero.jpg",
+      "sizes": "540x720",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["travel", "lodging"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Réserver une chambre",
+      "short_name": "Réserver",
+      "description": "Réserver une chambre ou un studio à BABA HÔTEL",
+      "url": "/chambres-studios?mode=reserv",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Nous contacter",
+      "short_name": "Contact",
+      "description": "Contacter BABA HÔTEL pour plus d'informations",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
