@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BABA HÔTEL - Site Officiel
 
-## Getting Started
+Site web officiel de BABA HÔTEL, un hôtel/appart-hôtel situé à Douala (Ndogbong Zachman – Rue Winner Chapelle).
 
-First, run the development server:
+## 🏨 À propos
+
+BABA HÔTEL propose :
+
+- Chambres simples et climatisées
+- Chambres VIP et haut standing
+- Studios meublés (court et long séjour)
+- Petit déjeuner inclus
+- Wifi gratuit
+- Restaurant africain & international
+- Bar, Parking, Laverie
+- Mini salle banquet
+
+## 🚀 Déploiement
+
+### Prérequis
+
+- Node.js 18+
+- npm ou yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Développement
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Design
 
-## Learn More
+Couleurs principales :
 
-To learn more about Next.js, take a look at the following resources:
+- Bleu : `#7EC8E3`
+- Rouge (CTA) : `#FF5A5F`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Police : Poppins
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Structure
 
-## Deploy on Vercel
+```
+app/
+├── layout.tsx                 # Layout racine
+├── page.tsx                   # Page d'accueil
+├── chambres-studios/
+│   └── page.tsx              # Page chambres & studios
+├── tarifs-services/
+│   └── page.tsx              # Page tarifs & services
+├── galerie/
+│   └── page.tsx              # Page galerie
+├── contact/
+│   └── page.tsx              # Page contact
+├── components/               # Composants réutilisables
+└── lib/                      # Utilitaires
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Technologies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js 15** avec App Router
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS** (via CDN)
+- **Lucide React** pour les icônes
+
+## 📞 Contact
+
+- Téléphone : **697 31 37 18**
+- Adresse : **Ndogbong Zachman – Rue Winner Chapelle, Douala**
+- WhatsApp : **+237 697 31 37 18**
+
+## 📄 License
+
+© 2026 BABA HÔTEL. Tous droits réservés.
+
+```
+
+---
+```
