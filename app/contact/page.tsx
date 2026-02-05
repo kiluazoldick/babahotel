@@ -1,20 +1,4 @@
-// app/contact/page.tsx
-"use client";
-
-import { Metadata } from "next";
-import Hero from "@/components/Hero";
-import { useState } from "react";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-  CheckCircle,
-  AlertCircle,
-  MessageSquare,
-} from "lucide-react";
-import { SITE, COLORS } from "@/lib/constants";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact - BABA HÔTEL | Téléphone, Email, WhatsApp",
@@ -30,6 +14,22 @@ export const metadata: Metadata = {
     "horaires",
   ],
 };
+
+"use client";
+
+import Hero from "@/components/Hero";
+import { useState } from "react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  MessageSquare,
+} from "lucide-react";
+import { SITE, COLORS } from "@/lib/constants";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

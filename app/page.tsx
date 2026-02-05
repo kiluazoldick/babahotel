@@ -1,5 +1,5 @@
 // app/page.tsx
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import RoomCard from "@/components/RoomCard";

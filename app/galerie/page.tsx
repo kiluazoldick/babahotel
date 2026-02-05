@@ -1,11 +1,5 @@
 // app/galerie/page.tsx
-"use client";
-
-import { Metadata } from "next";
-import Hero from "@/components/Hero";
-import { useState } from "react";
-import { Search, Filter, ZoomIn, Phone, MessageSquare } from "lucide-react";
-import { SITE, COLORS } from "@/lib/constants";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Galerie Photos - BABA HÔTEL Douala",
@@ -19,6 +13,13 @@ export const metadata: Metadata = {
     "visite virtuelle",
   ],
 };
+
+"use client";
+
+import Hero from "@/components/Hero";
+import { useState } from "react";
+import { Search, Filter, ZoomIn, Phone, MessageSquare } from "lucide-react";
+import { SITE, COLORS } from "@/lib/constants";
 
 const categories = [
   "Toutes",

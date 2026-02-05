@@ -1,16 +1,10 @@
-// app/layout.tsx (ajout des balises meta importantes)
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE, COLORS } from "@/lib/constants";
-
-const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://babahotel-douala.com"),
@@ -81,10 +75,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: undefined,
-    yandex: undefined,
-  },
+
 };
 
 export default function RootLayout({
@@ -161,7 +152,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${poppins.className} bg-white text-gray-800`}>
+      <body className="bg-white text-gray-800 font-sans">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
