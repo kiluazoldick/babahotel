@@ -85,7 +85,3 @@ app/
 ## 📄 License
 
 © 2026 BABA HÔTEL. Tous droits réservés.
-
-```
-
-```
