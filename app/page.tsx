@@ -212,7 +212,7 @@ export default function HomePage() {
             <div className="lg:w-1/2">
               <h3 className="text-2xl font-semibold mb-4">Nous trouver</h3>
               <p className="text-gray-600 mb-6">
-                Baba Hôtel est situé au cœur de Logpom, Douala, facilement
+                Baba Hôtel est situé au cœur de Ndogbong, Douala, facilement
                 accessible depuis les principales artères de la ville.
               </p>
 
