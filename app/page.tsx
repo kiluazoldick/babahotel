@@ -6,8 +6,6 @@ import RoomCard from "@/components/RoomCard";
 import {
   Home,
   Box,
-  Tag,
-  Shield,
   MapPin,
   Star,
   DollarSign,
@@ -15,6 +13,8 @@ import {
   ArrowRight,
   Phone,
   MessageSquare,
+  Utensils,
+  Cake,
 } from "lucide-react";
 import { SERVICES, PRICES, SITE, COLORS } from "@/lib/constants";
 
@@ -63,9 +63,9 @@ export default function HomePage() {
                   ? Home
                   : service.icon === "Box"
                     ? Box
-                    : service.icon === "Tag"
-                      ? Tag
-                      : Shield;
+                    : service.icon === "Utensils"
+                      ? Utensils
+                      : Cake;
               return (
                 <ServiceCard
                   key={index}
@@ -114,9 +114,9 @@ export default function HomePage() {
                   Accessibilité
                 </h3>
                 <p className="text-gray-600">
-                  Situé à <strong>Ndogbong Zachman, Douala</strong>, notre hôtel
-                  est facilement accessible depuis les principaux axes routiers.
-                  À proximité des zones commerciales et administratives.
+                  Situé au cœur de <strong>Ndogbong Zachman, Douala</strong>,
+                  notre hôtel est facilement accessible depuis les principaux
+                  axes routiers.
                 </p>
               </div>
               <div className="mb-6">
@@ -196,7 +196,7 @@ export default function HomePage() {
           </h2>
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-1/2">
-              <div className="h-96 rounded-xl shadow-lg overflow-hidden">
+              {
                 <iframe
                   src={SITE.googleMapsEmbed}
                   width="100%"
@@ -205,17 +205,17 @@ export default function HomePage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation de BABA HÔTEL sur Google Maps"
+                  title="Localisation de BABA HÔTEL"
                 />
-              </div>
+              }
             </div>
             <div className="lg:w-1/2">
               <h3 className="text-2xl font-semibold mb-4">Nous trouver</h3>
               <p className="text-gray-600 mb-6">
-                Baba Hôtel est situé au cœur de Ndogbong, Douala, facilement
-                accessible depuis les principales artères de la ville.
+                Baba Hôtel est situé au cœur de{" "}
+                <strong>Ndogbong Zachman, Douala</strong>, facilement accessible
+                depuis les principales artères de la ville.
               </p>
-
               <div className="mb-6">
                 <h4 className="text-lg font-medium mb-2 flex items-center gap-2">
                   <MapPin style={{ color: COLORS.blue }} /> Adresse

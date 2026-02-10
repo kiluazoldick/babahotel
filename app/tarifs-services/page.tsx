@@ -13,6 +13,7 @@ import {
   Users,
   Phone,
   MessageSquare,
+  Info,
 } from "lucide-react";
 import { PRICES, SITE, COLORS } from "@/lib/constants";
 import Link from "next/link";
@@ -192,7 +193,7 @@ export default function TarifsServicesPage() {
                         {room.price}
                       </span>
                       <p className="text-sm text-gray-500 mt-1">
-                        Petit déjeuner + Wifi inclus
+                        Wifi gratuit inclus
                       </p>
                     </td>
                     <td className="border p-4">
@@ -225,14 +226,14 @@ export default function TarifsServicesPage() {
 
           <div className="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-xl">
             <div className="flex items-start gap-3">
-              <Check className="w-6 h-6" style={{ color: "#10B981" }} />
+              <Info className="w-6 h-6 text-amber-500" />
               <div>
                 <h3 className="font-semibold text-lg mb-2">Important :</h3>
                 <p className="text-gray-700">
-                  Tous nos tarifs incluent le{" "}
-                  <strong>petit déjeuner buffet</strong> et l&apos;accès au{" "}
-                  <strong>wifi haut débit</strong>. Les taxes sont incluses. Pas
-                  de frais cachés.
+                  Tous nos tarifs incluent l&apos;accès au{" "}
+                  <strong>wifi haut débit</strong>. Les taxes sont incluses.{" "}
+                  <strong>Note :</strong> Les repas sont inclus uniquement pour
+                  les chambres climatisées et supérieures.
                 </p>
               </div>
             </div>

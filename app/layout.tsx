@@ -13,13 +13,15 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE.name} - Confort et élégance à Douala`,
-  description: SITE.description,
+  title: `${SITE.name} - Confort et élégance à Ndogbong Zachman, Douala`,
+  description:
+    "Hôtel à Ndogbong Zachman, Douala. Chambres ventilées et climatisées, studios meublés, restaurant africain & international, espace anniversaire.",
   keywords: [
-    "hôtel Douala",
+    "hôtel Ndogbong Zachman",
     "chambre Douala",
     "studio meublé Douala",
-    "hébergement Douala",
+    "restaurant Douala",
+    "espace anniversaire Douala",
     "BABA HÔTEL",
   ],
 };

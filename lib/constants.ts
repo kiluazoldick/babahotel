@@ -22,7 +22,7 @@ export const PRICES = {
   climatisee: "10 000 FCFA",
   climatiseeConforme: "12 000 FCFA",
   climatiseeVIP: "15 000 FCFA",
-  hautStanding: "17 000 FCFA",
+  hautStanding: "19 000 FCFA", // Changé de 17.000 à 19.000 FCFA
   studioMeuble: "20 000 FCFA",
   studioPromo: "18 000 FCFA",
   sieste2h: "3 500 FCFA",
@@ -41,7 +41,7 @@ export const SERVICES = [
   {
     icon: "Home",
     title: "Chambres Confortables",
-    description: "Des chambres spacieuses et bien équipées pour votre confort.",
+    description: "Chambres ventilées et climatisées avec salle de bain privée.",
   },
   {
     icon: "Box",
@@ -49,13 +49,13 @@ export const SERVICES = [
     description: "Studios entièrement équipés pour des séjours prolongés.",
   },
   {
-    icon: "Tag",
-    title: "Tarifs Accessibles",
-    description: "Des prix compétitifs pour un excellent rapport qualité-prix.",
+    icon: "Utensils",
+    title: "Restaurant & Bar",
+    description: "Cuisine africaine & internationale, bar bien fourni.",
   },
   {
-    icon: "Shield",
-    title: "Sécurité & Tranquillité",
-    description: "Un environnement sécurisé pour votre tranquillité d'esprit.",
+    icon: "Cake",
+    title: "Espace Anniversaire",
+    description: "Salle banquet pour événements jusqu'à 50 personnes.",
   },
 ];

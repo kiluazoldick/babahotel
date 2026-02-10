@@ -1,7 +1,7 @@
 // components/RoomCard.tsx
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { COLORS } from "@/lib/constants";
+import { COLORS, SITE } from "@/lib/constants";
 
 interface RoomCardProps {
   image: string;
@@ -16,8 +16,13 @@ export default function RoomCard({
   title,
   description,
   price,
-  href = "#",
+  href,
 }: Readonly<RoomCardProps>) {
+  const whatsappMessage = encodeURIComponent(
+    `je suis intéréssé par la ${title} je viens depuis votre site internet je souhaite obtenir des informations ou faire une réservation.`,
+  );
+  const defaultHref = `https://wa.me/${SITE.whatsapp}?text=${whatsappMessage}`;
+  const finalHref = href || defaultHref;
   return (
     <div className="room-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
       <div className="relative w-full h-48">
@@ -37,7 +42,7 @@ export default function RoomCard({
             {price}
           </span>
           <a
-            href={href}
+            href={finalHref}
             className="font-medium flex items-center gap-1 transition-colors"
             style={{ color: COLORS.red }}
           >

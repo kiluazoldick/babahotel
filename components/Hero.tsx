@@ -15,6 +15,10 @@ export default function Hero({
   description = "Chambres et studios meublés à prix accessibles",
   showButtons = true,
 }: Readonly<HeroProps>) {
+  const whatsappMessage = encodeURIComponent(
+    "Bonjour,je viens de votre site internet je souhaite réserver une chambre",
+  );
+
   return (
     <section className="hero-image h-screen flex items-center justify-center text-white">
       <div className="text-center px-4">
@@ -25,7 +29,7 @@ export default function Hero({
         {showButtons && (
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="#contact"
+              href={`https://wa.me/${SITE.whatsapp}?text=${whatsappMessage}`}
               className="font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:scale-105 text-white"
               style={{ backgroundColor: COLORS.red }}
             >
