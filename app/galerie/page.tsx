@@ -10,9 +10,9 @@ import {
   Phone,
   MessageSquare,
   Video as VideoIcon,
-  Camera,
+  Play,
 } from "lucide-react";
-import { SITE, COLORS } from "@/lib/constants";
+import { SITE, COLORS, IMAGES } from "@/lib/constants";
 
 const categories = [
   "Toutes",
@@ -25,60 +25,75 @@ const categories = [
 
 const galleryItems = [
   {
+    id: "chambre-standard",
     category: "Chambres",
     title: "Chambre Standard",
     description: "Confort et simplicité",
+    image: IMAGES.galerie.chambreStandard,
   },
   {
+    id: "chambre-vip",
     category: "Chambres",
     title: "Chambre VIP",
     description: "Élégance et espace",
+    image: IMAGES.galerie.chambreVIP,
   },
   {
+    id: "suite-haut-standing",
     category: "Chambres",
     title: "Suite Haut Standing",
     description: "Luxe et raffinement",
+    image: IMAGES.galerie.suiteHautStanding,
   },
   {
+    id: "studio-familial",
     category: "Studios",
     title: "Studio Familial",
     description: "Espace et autonomie",
+    image: IMAGES.galerie.studioFamilial,
   },
   {
-    category: "Studios",
-    title: "Cuisine équipée",
-    description: "Tout pour cuisiner",
+    id: "Salle-de-reception",
+    category: "Équipements",
+    title: "Salle de reception",
+    description: "Tout pour vos evenements",
+    image: IMAGES.galerie.salledeReception,
   },
   {
-    category: "Restaurant & Bar",
-    title: "Salle à manger",
-    description: "Ambiance chaleureuse",
+    id: "espace-vip-interieur",
+    category: "Équipements",
+    title: "Espace VIP interieur",
+    description: "Cadre tranquille a l'abri des regards",
+    image: IMAGES.galerie.vipInter,
   },
   {
+    id: "bar-lounge",
     category: "Restaurant & Bar",
     title: "Bar Lounge",
     description: "Détente et convivialité",
+    image: IMAGES.galerie.barLounge,
   },
-  { category: "Équipements", title: "Réception", description: "Accueil 24/7" },
   {
+    id: "reception",
     category: "Équipements",
-    title: "Salle banquet",
-    description: "Événements jusqu'à 50 personnes",
+    title: "Réception",
+    description: "Accueil 24/7",
+    image: IMAGES.galerie.reception,
   },
+
   {
-    category: "Équipements",
-    title: "Parking sécurisé",
-    description: "Véhicule en sécurité",
-  },
-  {
+    id: "espace-vip-exterieur",
     category: "Extérieurs",
-    title: "Façade de l'hôtel",
-    description: "Architecture moderne",
+    title: "Espace VIP exterieur",
+    description: "A l'abris de regards",
+    image: IMAGES.galerie.vipExte,
   },
   {
+    id: "terrasse",
     category: "Extérieurs",
     title: "Terrasse",
     description: "Espace de détente",
+    image: IMAGES.galerie.terrasse,
   },
 ];
 
@@ -135,33 +150,31 @@ export default function GaleriePage() {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Gallery Grid - AVEC VRAIES IMAGES */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => (
               <div
-                key={index}
+                key={item.id}
                 className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedImage(index)}
               >
-                <div className="aspect-square bg-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-gray-500 mb-2">
-                      [Image: {item.title}]
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Cliquez pour agrandir
-                    </div>
-                  </div>
+                <div className="aspect-square bg-gray-100 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
-                    <h3 className="font-semibold">{item.title}</h3>
+                    <h3 className="font-semibold text-lg">{item.title}</h3>
                     <p className="text-sm opacity-90">{item.description}</p>
                   </div>
                 </div>
-                <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
                   <ZoomIn className="w-5 h-5 text-gray-700" />
                 </div>
               </div>
@@ -180,7 +193,7 @@ export default function GaleriePage() {
         </div>
       </section>
 
-      {/* Video Tour Section */}
+      {/* Video Tour Section - AVEC VIDÉO RÉELLE */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2
@@ -190,27 +203,47 @@ export default function GaleriePage() {
             Visite virtuelle
           </h2>
           <div className="max-w-4xl mx-auto">
-            <div className="aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
-              <div className="text-center text-white">
-                <VideoIcon className="w-20 h-20 mx-auto mb-4 text-gray-300" />
-                <h3 className="text-xl font-semibold mb-2">
-                  Visite vidéo de BABA HÔTEL
-                </h3>
-                <p className="text-gray-300">(Bientôt disponible)</p>
-                <p className="text-sm text-gray-400 mt-4">
-                  Découvrez nos espaces en mouvement
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
+              {/* Lecteur vidéo avec vraie vidéo */}
+              <div className="relative aspect-video">
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  controlsList="nodownload"
+                  preload="metadata"
+                  playsInline
+                  poster="/images/video-thumbnail.jpg" // Optionnel : image d'aperçu
+                  aria-label="Visite virtuelle de BABA HÔTEL"
+                >
+                  <source src="/videos/video.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+
+                {/* Overlay play button */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <Play className="w-12 h-12 text-white fill-white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Légende */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 pointer-events-none">
+                <p className="text-white text-sm font-medium">
+                  🎬 Visite immersive - Studios meublés BABA HÔTEL
                 </p>
               </div>
             </div>
+
             <p className="text-center text-gray-600 mt-6">
-              Notre visite virtuelle vous permet de découvrir l&apos;ambiance de
-              notre établissement avant votre arrivée.
+              Découvrez nos studios meublés en vidéo. Ambiance, équipements et
+              confort vous attendent.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials with Photos */}
+      {/* Testimonials - SANS PHOTOS, UNIQUEMENT TEXTE */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2
@@ -225,39 +258,50 @@ export default function GaleriePage() {
                 name: "Marie T.",
                 role: "Voyageuse d'affaires",
                 comment:
-                  "Chambre très propre et calme. Parfait pour le travail.",
-                photo: "Photo de chambre de travail",
+                  "Chambre très propre et calme. Parfait pour le travail. Le wifi est excellent et le personnel aux petits soins.",
               },
               {
-                name: "La famille Martin",
+                name: "Famille Martin",
                 role: "Vacances en famille",
                 comment:
-                  "Le studio familial était parfait pour nous 4. Les enfants ont adoré.",
-                photo: "Photo de studio familial",
+                  "Le studio familial était parfait pour nous 4. La kitchenette nous a permis de cuisiner, les enfants ont adoré.",
               },
               {
                 name: "M. Diallo",
-                role: "Séjour prolongé",
+                role: "Séjour professionnel (3 mois)",
                 comment:
-                  "3 mois chez BABA HÔTEL pour ma mission. Service impeccable.",
-                photo: "Photo de séjour longue durée",
+                  "3 mois chez BABA HÔTEL pour ma mission. Service impeccable, studio bien équipé. Je recommande vivement.",
               },
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                className="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow duration-300 border border-gray-100"
               >
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500">[Photo témoignage]</span>
+                {/* Étoiles */}
+                <div className="flex items-center mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg
+                      key={star}
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 italic mb-4">
-                    &quot;{testimonial.comment}&quot;
+
+                {/* Commentaire */}
+                <p className="text-gray-600 italic mb-6 text-lg leading-relaxed">
+                  &quot;{testimonial.comment}&quot;
+                </p>
+
+                {/* Auteur */}
+                <div className="border-t border-gray-200 pt-4">
+                  <p className="font-semibold text-gray-800">
+                    {testimonial.name}
                   </p>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -297,33 +341,35 @@ export default function GaleriePage() {
         </div>
       </section>
 
-      {/* Image Modal */}
+      {/* Image Modal - AVEC VRAIE IMAGE */}
       {selectedImage !== null && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-4xl max-h-[90vh]">
-            <div className="bg-gray-800 aspect-video rounded-lg overflow-hidden flex items-center justify-center">
-              <div className="text-white text-center">
-                <Camera className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-                <h3 className="text-xl font-semibold mb-2">
+          <div className="relative max-w-6xl max-h-[90vh]">
+            <div className="bg-black rounded-xl overflow-hidden">
+              <img
+                src={galleryItems[selectedImage].image}
+                alt={galleryItems[selectedImage].title}
+                className="max-w-full max-h-[80vh] object-contain"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">
                   {galleryItems[selectedImage].title}
                 </h3>
-                <p>{galleryItems[selectedImage].description}</p>
-                <p className="text-sm text-gray-400 mt-4">
-                  (Image réelle à intégrer)
+                <p className="text-gray-300 text-lg">
+                  {galleryItems[selectedImage].description}
                 </p>
               </div>
             </div>
-            <div className="absolute top-4 right-4">
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
-              >
-                ✕
-              </button>
-            </div>
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm"
+              aria-label="Fermer"
+            >
+              ✕
+            </button>
           </div>
         </div>
       )}

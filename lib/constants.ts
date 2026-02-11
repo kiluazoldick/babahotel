@@ -59,3 +59,28 @@ export const SERVICES = [
     description: "Salle banquet pour événements jusqu'à 50 personnes.",
   },
 ];
+
+// Définir le chemin de base des images
+export const IMAGES = {
+  // Chambres
+  chambreSimple: "/images/chambre-simple.jpg",
+  chambreClimatisee: "/images/chambre-climatisee.jpg",
+  chambreConforme: "/images/chambre-conforme.jpg",
+  chambreVIP: "/images/chambre-vip.jpg",
+  chambreHautStanding: "/images/chambre-haut-standing.jpg",
+
+  // Galerie - ajouter ici toutes les photos de la galerie
+  galerie: {
+    chambreStandard: "/images/galerie/chambre-standard.jpg",
+    chambreVIP: "/images/galerie/chambre-vip.jpg",
+    suiteHautStanding: "/images/galerie/suite-haut-standing.jpg",
+    studioFamilial: "/images/galerie/studio-familial.jpg",
+    salledeReception: "/images/galerie/salle-de-reception.jpg",
+    vipInter: "/images/galerie/vip-inter.jpg",
+    barLounge: "/images/galerie/bar-lounge.jpg",
+    reception: "/images/galerie/reception.jpg",
+
+    vipExte: "/images/galerie/vipExte.jpg",
+    terrasse: "/images/galerie/terrasse.jpg",
+  },
+} as const;

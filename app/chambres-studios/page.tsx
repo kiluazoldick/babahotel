@@ -1,4 +1,6 @@
 // app/chambres-studios/page.tsx - VERSION CORRIGÉE AVEC VIDÉO
+"use client";
+
 import Hero from "@/components/Hero";
 import {
   Check,
@@ -11,39 +13,52 @@ import {
   Car,
   Phone,
   Play,
-  Video,
 } from "lucide-react";
-import { PRICES, SITE, COLORS } from "@/lib/constants";
+import { PRICES, SITE, COLORS, IMAGES } from "@/lib/constants";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Nos Chambres & Studios - BABA HÔTEL Douala",
-  description:
-    "Découvrez nos chambres simples, VIP, haut standing et studios meublés à Douala. Photos, équipements, disponibilités.",
-};
 
 export default function ChambresStudiosPage() {
   const allRooms = [
     {
-      image: "/images/chambre-simple.jpg",
+      id: "chambre-simple",
+      image: IMAGES.chambreSimple,
       title: "Chambre Ventilée Simple",
       description:
         "Chambre fonctionnelle avec lit simple, ventilateur et salle de bain privée.",
-      price: `À partir de ${PRICES.simpleRoom}/nuit`,
+      price: `${PRICES.simpleRoom}/nuit`,
       features: ["Lit simple", "Ventilateur", "Salle de bain privée"],
       note: "Repas non inclus",
     },
     {
-      image: "/images/chambre-climatisee.jpg",
+      id: "chambre-climatisee",
+      image: IMAGES.chambreClimatisee,
       title: "Chambre Climatisée Standard",
       description:
         "Chambre avec climatisation, lit double et espace de travail.",
       price: `${PRICES.climatisee}/nuit`,
-      features: ["Climatisation", "Lit double", "Wifi gratuit"],
+      features: ["Climatisation", "Lit double", "Espace travail", "Wifi"],
     },
-    // ... autres chambres ...
     {
-      image: "/images/chambre-haut-standing.jpg",
+      id: "chambre-conforme",
+      image: IMAGES.chambreConforme,
+      title: "Chambre Climatisée Conforme",
+      description:
+        "Chambre spacieuse avec tout le confort nécessaire pour un séjour agréable.",
+      price: `${PRICES.climatiseeConforme}/nuit`,
+      features: ["Climatisation", "Lit king-size", "TV", "Minibar"],
+    },
+    {
+      id: "chambre-vip",
+      image: IMAGES.chambreVIP,
+      title: "Chambre VIP Climatisée",
+      description:
+        "Chambre de luxe avec espace salon, décoration raffinée et vue agréable.",
+      price: `${PRICES.climatiseeVIP}/nuit`,
+      features: ["Espace salon", "Décoration premium", "Vue", "Service room"],
+    },
+    {
+      id: "chambre-haut-standing",
+      image: IMAGES.chambreHautStanding,
       title: "Chambre Haut Standing",
       description:
         "Notre offre premium avec équipements haut de gamme et service personnalisé.",
@@ -101,7 +116,7 @@ export default function ChambresStudiosPage() {
             <div className="lg:w-1/2">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
                 {/* Conteneur vidéo avec hauteur fixe */}
-                <div className="relative h-[400px] w-full">
+                <div className="relative h-100 w-full">
                   {/* Video player avec dimensions exactes */}
                   <video
                     className="absolute inset-0 w-full h-full object-cover"
@@ -124,7 +139,7 @@ export default function ChambresStudiosPage() {
                   </div>
 
                   {/* Légende de la vidéo */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4 pointer-events-none">
                     <p className="text-white text-sm font-medium">
                       Studio meublé - BABA HÔTEL Ndogbong Zachman
                     </p>
@@ -217,7 +232,7 @@ export default function ChambresStudiosPage() {
         </div>
       </section>
 
-      {/* All Rooms Grid */}
+      {/* All Rooms Grid - VERSION CORRIGÉE SANS ERREUR */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2
@@ -227,48 +242,77 @@ export default function ChambresStudiosPage() {
             Tous nos hébergements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allRooms.map((room, index) => (
+            {allRooms.map((room) => (
               <div
-                key={index}
-                className="room-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300"
+                key={room.id}
+                className="room-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
-                <div className="relative w-full h-48 bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500">Image: {room.title}</span>
+                {/* Conteneur d'image - VERSION SIMPLE SANS ERREUR */}
+                <div className="relative w-full h-56 overflow-hidden bg-gray-100">
+                  {/* Image simple - pas de onError */}
+                  <img
+                    src={room.image}
+                    alt={room.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+
+                  {/* Badge "Promo" si c'est un studio promo */}
+                  {room.id === "studio-promo" && (
+                    <div className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                      -10% PROMO
+                    </div>
+                  )}
+
+                  {/* Badge "Repas non inclus" pour chambre simple */}
+                  {room.note && (
+                    <div className="absolute bottom-3 left-3 bg-amber-500/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">
+                      ⚠️ {room.note}
+                    </div>
+                  )}
                 </div>
+
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{room.title}</h3>
-                  <p className="text-gray-600 mb-4">{room.description}</p>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    {room.description}
+                  </p>
 
                   <div className="mb-4">
-                    <h4 className="font-medium mb-2 text-gray-700">
+                    <h4 className="font-medium mb-2 text-gray-700 text-sm">
                       Équipements inclus :
                     </h4>
-                    <ul className="space-y-1">
+                    <ul className="space-y-1.5">
                       {room.features.map((feature, idx) => (
                         <li
                           key={idx}
                           className="flex items-center gap-2 text-sm text-gray-600"
                         >
                           <Check
-                            className="w-4 h-4"
+                            className="w-4 h-4 shrink-0"
                             style={{ color: "#10B981" }}
                           />
-                          {feature}
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="flex justify-between items-center pt-4 border-t">
-                    <span
-                      className="font-bold text-lg"
-                      style={{ color: COLORS.blue }}
-                    >
-                      {room.price}
-                    </span>
+                  <div className="flex justify-between items-center pt-4 border-t border-gray-100">
+                    <div>
+                      <span
+                        className="font-bold text-lg"
+                        style={{ color: COLORS.blue }}
+                      >
+                        {room.price}
+                      </span>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Wifi inclus
+                      </p>
+                    </div>
                     <a
                       href={`tel:${SITE.phone}`}
-                      className="font-medium py-2 px-4 rounded-full transition-all duration-300 hover:scale-105 text-sm text-white"
+                      className="font-medium py-2.5 px-5 rounded-full transition-all duration-300 hover:scale-105 text-sm text-white shadow-md hover:shadow-lg"
                       style={{ backgroundColor: COLORS.red }}
                     >
                       Réserver
