@@ -94,65 +94,50 @@ export default function ChambresStudiosPage() {
         </div>
       </section>
 
-      {/* SECTION VIDÉO IMMERSIVE POUR STUDIOS */}
+      {/* SECTION VIDÉO IMMERSIVE POUR STUDIOS - VERSION CORRIGÉE */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                {/* Conteneur vidéo avec player fonctionnel */}
-                <div className="relative aspect-video">
-                  {/* Video player avec contrôles */}
+                {/* Conteneur vidéo avec hauteur fixe */}
+                <div className="relative h-[400px] w-full">
+                  {/* Video player avec dimensions exactes */}
                   <video
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                     controls
                     controlsList="nodownload"
-                    poster="/images/video-thumbnail.jpg" // Image de preview optionnelle
                     preload="metadata"
-                    aria-label="Admirez notre studios meublés BABA HÔTEL"
+                    playsInline
+                    aria-label="Visite des studios meublés BABA HÔTEL"
                   >
-                    {/* Sources vidéo - ajoutez vos formats */}
                     <source src="/videos/video.mp4" type="video/mp4" />
-
-                    {/* Fallback pour navigateurs qui ne supportent pas la vidéo */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-blue-400 to-blue-600">
-                      <div className="text-center text-white p-8">
-                        <Video className="w-20 h-20 mx-auto mb-6" />
-                        <h3 className="text-2xl font-bold mb-4">
-                          Découvrez nos Studios Meublés
-                        </h3>
-                        <p className="text-lg mb-6">
-                          Visite immersive en vidéo
-                        </p>
-                        <p className="text-sm text-gray-300">
-                          Votre navigateur ne supporte pas la lecture vidéo.
-                          <br />
-                          <a
-                            href="/videos/studio-visite.mp4"
-                            className="text-white underline mt-2 inline-block"
-                            download
-                          >
-                            Télécharger la vidéo
-                          </a>
-                        </p>
-                      </div>
-                    </div>
+                    {/* Simple texte de fallback - PAS DE DIV */}
+                    Votre navigateur ne supporte pas la lecture vidéo.
                   </video>
 
-                  {/* Overlay play button au chargement */}
-                  <div className="video-overlay absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-6">
-                      <Play className="w-12 h-12 text-white" />
+                  {/* Overlay play button séparé (optionnel) */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <Play className="w-12 h-12 text-white fill-white" />
                     </div>
                   </div>
-                </div>
 
-                {/* Légende de la vidéo */}
-                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white text-sm">
-                    Admirez notre studio meublé - BABA HÔTEL Ndogbong Zachman
-                  </p>
+                  {/* Légende de la vidéo */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 pointer-events-none">
+                    <p className="text-white text-sm font-medium">
+                      Studio meublé - BABA HÔTEL Ndogbong Zachman
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              {/* Infos complémentaires sous la vidéo */}
+              <div className="mt-3 text-center text-sm text-gray-500">
+                <span>
+                  Cliquez sur play pour découvrir nos studios meublés en vidéo
+                  immersive. Parfait pour se projeter avant de réserver !
+                </span>
               </div>
             </div>
 
@@ -209,25 +194,9 @@ export default function ChambresStudiosPage() {
                     <Users className="w-5 h-5" style={{ color: COLORS.blue }} />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Espace familial</h4>
+                    <h4 className="font-semibold">Espace convivial</h4>
                     <p className="text-gray-600 text-sm">
-                      Jusqu&apos;à 4 personnes, lit bébé disponible sur demande
-                    </p>
-                  </div>
-                </div>
-
-                {/* Nouveau point pour la vidéo */}
-                <div className="flex items-start gap-3">
-                  <div
-                    className="p-2 rounded-lg"
-                    style={{ backgroundColor: `${COLORS.blue}20` }}
-                  >
-                    <Video className="w-5 h-5" style={{ color: COLORS.blue }} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Visite virtuelle incluse</h4>
-                    <p className="text-gray-600 text-sm">
-                      Visualisez le studio avant de réserver grâce à notre vidéo
+                      Jusqu&apos;à 2 personnes, pour un meilleur confort
                     </p>
                   </div>
                 </div>
@@ -247,6 +216,7 @@ export default function ChambresStudiosPage() {
           </div>
         </div>
       </section>
+
       {/* All Rooms Grid */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
