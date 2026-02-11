@@ -28,7 +28,7 @@ export default function HomePage() {
       price: `À partir de ${PRICES.simpleRoom}/nuit`,
     },
     {
-      image: "/images/chambre2.jpg",
+      image: "/images/chambre-climatisee.jpg",
       title: "Chambre Deluxe",
       description:
         "Espace plus grand avec coin salon, parfait pour les longs séjours.",
