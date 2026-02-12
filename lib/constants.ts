@@ -79,8 +79,8 @@ export const IMAGES = {
     vipInter: "/images/galerie/vip-inter.jpg",
     barLounge: "/images/galerie/bar-lounge.jpg",
     reception: "/images/galerie/reception.jpg",
-
     vipExte: "/images/galerie/vipExte.jpg",
     terrasse: "/images/galerie/terrasse.jpg",
+    chambreLuxe: "images/galerie/chambre2.jpg",
   },
 } as const;

@@ -95,6 +95,13 @@ const galleryItems = [
     description: "Espace de détente",
     image: IMAGES.galerie.terrasse,
   },
+  {
+    id: "Chambre-luxe",
+    category: "Chambres",
+    title: "Chambre Deluxe",
+    description: "Ideal pour les clients rafinés",
+    image: IMAGES.galerie.chambreLuxe,
+  },
 ];
 
 export default function GaleriePage() {

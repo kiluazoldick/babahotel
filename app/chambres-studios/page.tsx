@@ -119,7 +119,7 @@ export default function ChambresStudiosPage() {
                 <div className="relative h-100 w-full">
                   {/* Video player avec dimensions exactes */}
                   <video
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className=" inset-0 w-full h-full object-cover"
                     controls
                     controlsList="nodownload"
                     preload="metadata"
