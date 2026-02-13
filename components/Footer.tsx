@@ -1,13 +1,6 @@
 // components/Footer.tsx
 import Link from "next/link";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Facebook,
-  Instagram,
-  Twitter,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Music2 } from "lucide-react";
 import { SITE, NAV_LINKS, COLORS } from "@/lib/constants";
 
 export default function Footer() {
@@ -79,14 +72,14 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Réseaux sociaux</h4>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://web.facebook.com/babahoteldouala?_rdc=1&_rdr#"
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/babahoteldouala"
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors"
                 aria-label="Instagram"
               >
@@ -97,7 +90,7 @@ export default function Footer() {
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <Music2 className="w-5 h-5" />
               </a>
             </div>
           </div>

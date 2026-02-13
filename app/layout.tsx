@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE, COLORS } from "@/lib/constants";
+import { Analytics } from "@vercel/analytics/next";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -64,6 +65,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.className} bg-white text-gray-800`}>
+        <Analytics />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
